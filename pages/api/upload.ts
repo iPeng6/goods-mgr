@@ -18,7 +18,6 @@ router.use(upload.array('file')).post((req, res) => {
 
 export default router.handler({
   onError: (err, req, res) => {
-    console.error(err.stack);
     res.status(500).end('Something broke!');
   },
   onNoMatch: (req, res) => {

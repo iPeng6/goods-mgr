@@ -36,10 +36,10 @@ const Home: NextPage<{ list: Goods[][] }> = ({ list }) => {
 
       <main className={s['page']}>
         <AddForm />
-        {list.map((dir) => {
+        {list.map((dir, index) => {
           const category = dir[0].category;
           return (
-            <div className={s['goods-list-item']}>
+            <div className={s['goods-list-item']} key={index}>
               <div className={s['goods-category']}>{category}</div>
               <div className={s['goods-imgs']}>
                 {dir.map(({ _id, category, description, filename }) => {
