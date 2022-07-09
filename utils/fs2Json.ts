@@ -7,6 +7,7 @@ function fs2Json() {
   const tree = {};
   const list: Goods[][] = [];
   function readDir(dir: string, res) {
+    if (!fs.existsSync(dir)) return;
     const files = fs.readdirSync(dir);
     res.child = [];
     files.forEach((item) => {

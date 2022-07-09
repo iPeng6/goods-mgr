@@ -21,13 +21,18 @@ class DB<T> {
     }
   }
   query(id: string) {
-    return this.db.find(({ _id }) => _id !== id);
+    return this.db.find(({ _id }) => _id === id);
   }
   add(record: T) {
     this.db.push({ _id: uid(), ...record });
     this.write();
   }
   delete(id: string) {
+    console.log(
+      this.db,
+      id,
+      this.db.find(({ _id }) => _id !== id)
+    );
     if (this.query(id)) {
       this.db = this.db.filter(({ _id }) => _id !== id);
       this.write();

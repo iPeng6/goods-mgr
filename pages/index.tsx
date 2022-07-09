@@ -26,43 +26,45 @@ const Home: NextPage<{ list: Goods[][] }> = ({ list }) => {
     });
   };
 
-  return (
-    <div>
-      <Head>
-        <title>Goods Display</title>
-        <meta name="description" content="Goods Display" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+return (
+  <div>
+    <Head>
+      <title>Goods Display</title>
+      <meta name="description" content="Goods Display" />
+      <link rel="icon" href="/favicon.ico" />
+    </Head>
 
-      <main className={s['page']}>
-        <AddForm />
-        {list.map((dir, index) => {
-          const category = dir[0].category;
-          return (
-            <div className={s['goods-list-item']} key={index}>
-              <div className={s['goods-category']}>{category}</div>
-              <div className={s['goods-imgs']}>
-                {dir.map(({ _id, category, description, filename }) => {
-                  return (
-                    <div key={_id}>
-                      <Image
-                        src={`/uploads/${filename}`}
-                        layout="responsive"
-                        width={500}
-                        height={500}
-                      ></Image>
-                      <div>{description}</div>
-                      <Button onClick={() => onDel(category, _id)}>删除</Button>
-                    </div>
-                  );
-                })}
-              </div>
+    <main className={s['page']}>
+      <AddForm />
+      {list.map((dir, index) => {
+        if (!dir[0]) return;
+        const category = dir[0].category;
+        return (
+          <div className={s['goods-list-item']} key={index}>
+            <div className={s['goods-category']}>{category}</div>
+            <div className={s['goods-imgs']}>
+              {dir.map(({ _id, category, description, filename }) => {
+                return (
+                  <div key={_id}>
+                    <Image
+                      src={`/uploads/${filename}`}
+                      layout="responsive"
+                      width={500}
+                      height={500}
+                      alt=""
+                    ></Image>
+                    <div>{description}</div>
+                    <Button onClick={() => onDel(category, _id)}>删除</Button>
+                  </div>
+                );
+              })}
             </div>
-          );
-        })}
-      </main>
-    </div>
-  );
+          </div>
+        );
+      })}
+    </main>
+  </div>
+);
 };
 
 export default Home

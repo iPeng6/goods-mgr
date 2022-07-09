@@ -1,5 +1,5 @@
 import { UploadOutlined } from '@ant-design/icons';
-import { Button, Checkbox, Form, Input, Upload } from 'antd';
+import { Button, Checkbox, Form, Input, message, Upload } from 'antd';
 import React from 'react';
 import http from '../../utils/http';
 
@@ -21,11 +21,17 @@ function AddForm() {
     console.log('Success:', values);
     if (values.upload?.length > 0) {
       const { category, description, upload } = values;
-      http.post('/api/add', {
-        category,
-        description,
-        filename: upload[0].name,
-      });
+      http
+        .post('/api/add', {
+          category,
+          description,
+          filename: upload[0].name,
+        })
+        .then((res) => {
+          if (res?.data?.status && res.data.status.code === 0) {
+            message.success('保存成功！');
+          }
+        });
     }
   };
 
@@ -71,7 +77,7 @@ function AddForm() {
         </Upload>
       </Form.Item>
 
-      <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+      <Form.Item wrapperCol={{ span: 16 }}>
         <Button type="primary" htmlType="submit">
           提交
         </Button>
