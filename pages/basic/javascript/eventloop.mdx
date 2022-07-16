@@ -124,7 +124,7 @@ requestIdleCallback 提供了在空闲时间自动执行队列任务的能力，
 </script>
 ```
 
-![](img/eventloopric.png ':size=360xauto')
+![](img/eventloopric.png)
 
 另外 requestIdleCallback 的执行有 50ms 的限制以便于响应更高优先级的任务，但为了不被饿死也提供了 timeout 选项，使得过期的空闲任务会被优先执行
 

@@ -70,7 +70,7 @@ npm install -g react-native-cli
 ## 创建 RN 项目
 
 ```bash
-mkdir <dir> && cd <dir>
+mkdir [dir] && cd [dir]
 react-native init AwesomeProject
 ```
 
@@ -90,12 +90,14 @@ package.json 中先添加几个常用脚本
 },
 ```
 
+```
 1. yarn start // 启动服务
 2. yarn bundle:{android,ios} // 打包 js bundle 如果目录不存在手动建一个
 3. yarn {android,ios} // 启动模拟器或设备运行 app
 4. yarn build:android // 打包 apk
+```
 
-!> 安卓打包需要完成了签名配置之后才可以使用。因为 release 相当于一个线上版本需要所有签名依赖打包到 apk 中才可离线运行
+> 安卓打包需要完成了签名配置之后才可以使用。因为 release 相当于一个线上版本需要所有签名依赖打包到 apk 中才可离线运行
 
 如果安卓手机连不上脚本 packager 服务
 

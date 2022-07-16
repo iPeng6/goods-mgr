@@ -19,9 +19,9 @@ const nextConfig = {
     // !! WARN !!
     ignoreBuildErrors: true,
   },
-  reactStrictMode: true,
+  reactStrictMode: false,
   swcMinify: true,
-  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
+  pageExtensions: ['ts', 'tsx', 'md', 'mdx'],
   webpack: (config, options) => {
     config.resolveLoader.alias['myloader'] =
       require('path').resolve('./myloader');

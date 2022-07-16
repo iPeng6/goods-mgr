@@ -29,6 +29,9 @@ const components = {
   NextImage: (props: any) => {
     return <Image alt={props.alt || 'Image'} layout="responsive" {...props} />;
   },
+  br: () => {
+    return <div></div>;
+  },
 };
 
 function MyApp({ Component, pageProps }: AppProps) {
