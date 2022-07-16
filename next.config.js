@@ -1,7 +1,35 @@
 /** @type {import('next').NextConfig} */
+
+
+const withMDX = require('@next/mdx')({
+  extension: /\.mdx?$/,
+  options: {
+    remarkPlugins: [require('remark-prism')],
+    rehypePlugins: [],
+    // If you use `MDXProvider`, uncomment the following line.
+    providerImportSource: '@mdx-js/react',
+  },
+});
+
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-}
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
+  webpack: (config, options) => {
+    config.resolveLoader.alias['myloader'] =
+      require('path').resolve('./myloader');
 
-module.exports = nextConfig
+    config.module.rules.push({
+      test: /\.md/,
+      use: [
+        {
+          loader: 'myloader',
+        },
+      ],
+    });
+
+    return config;
+  },
+};
+
+module.exports = withMDX(nextConfig);

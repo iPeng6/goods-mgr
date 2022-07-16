@@ -1,0 +1,75 @@
+body {
+  background: #f6f7f9;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Source Sans Pro, Helvetica, Arial, sans-serif,
+    Apple Color Emoji, Segoe UI Emoji;
+}
+
+.content {
+  padding-top: 16px;
+}
+
+.markdown-section {
+  color: #24292e;
+  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.1);
+  margin-bottom: 16px;
+  background: #fefefe;
+  padding: 3vw 5vw;
+  max-width: 1024px;
+}
+
+.markdown-section li {
+  margin: 4px 0;
+}
+
+.markdown-section strong {
+  color: black;
+}
+
+.markdown-section h1 span {
+  font-size: 1.8rem;
+}
+
+.markdown-section h2 span {
+  font-size: 1.4rem;
+  color: #938846;
+}
+
+.markdown-section h3 span {
+  font-size: 1.2rem;
+  color: #880d00;
+}
+
+.markdown-section h4 span {
+  font-size: 1.1rem;
+  color: #773098;
+}
+
+.markdown-section h5 span {
+  font-size: 1rem;
+  color: #357b2d;
+}
+
+.sidebar .file > ul.app-sub-sidebar {
+  margin-left: 0;
+}
+
+/* vuep */
+.markdown-section .vuep {
+  height: auto;
+  flex-direction: column;
+}
+
+.vuep .vuep-editor {
+  margin-right: 0;
+}
+.vuep-editor,
+.vuep-preview,
+.vuep-error {
+  width: auto !important;
+}
+
+@media screen and (max-width: 768px) {
+  .content {
+    padding: 0;
+  }
+}
