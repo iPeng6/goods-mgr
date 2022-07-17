@@ -1,5 +1,4 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import type { AppProps } from 'next/app';
 import { MDXProvider } from '@mdx-js/react';
 import Image from 'next/image';
 
@@ -42,4 +41,4 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
 }
 
-export default MyApp
+export default MyApp;
