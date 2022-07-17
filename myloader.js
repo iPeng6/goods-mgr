@@ -24,6 +24,7 @@ const getStyleObjectFromString = (str) => {
 };
 
 module.exports = (source) => {
+  // 处理图片相对路径改成动态require
   let replaced = source.replace(/\!\[(.*)\]\((.+)\)/g, (match, p1, p2) => {
     // console.log('=====', p2);
     if (!p2.startsWith('http')) {
@@ -33,6 +34,8 @@ module.exports = (source) => {
     }
     return match;
   });
+
+  // 将html的style 转换成jsx style object
   replaced = replaced.replace(/style="(.+)"/g, (match, p1) => {
     const res = `style={${JSON.stringify(getStyleObjectFromString(p1))}}`;
     return res;
