@@ -16,7 +16,9 @@ function MyApp({ Component, pageProps }: AppProps) {
   // console.log(pageProps);
   const [sidebarData, setSidebarData] = useState('');
   const [open, setOpen] = useState(false);
+
   useEffect(() => {
+    if (!open || sidebarData) return;
     fetch('/api/sidebar')
       .then((res) => {
         return res.text();
@@ -25,7 +27,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         console.log('res', text);
         setSidebarData(text);
       });
-  }, []);
+  }, [open, sidebarData]);
 
   const openToggle = () => {
     setOpen((prev) => !prev);
