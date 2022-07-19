@@ -35,14 +35,14 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <MDXProvider components={components}>
       <div className="layout">
+        <article className="article-container">
+          <Component {...pageProps} />
+        </article>
+        <nav className="sidebar" style={{ display: open ? '' : 'none' }}>
+          <MarkDown>{sidebarData}</MarkDown>
+        </nav>
         <div className="switcher" onClick={openToggle}>
           三
-        </div>
-        <div className="sidebar" style={{ display: open ? '' : 'none' }}>
-          <MarkDown>{sidebarData}</MarkDown>
-        </div>
-        <div className="article-container">
-          <Component {...pageProps} />
         </div>
       </div>
     </MDXProvider>
