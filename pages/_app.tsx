@@ -2,7 +2,6 @@ import type { AppProps } from 'next/app';
 import { MDXProvider } from '@mdx-js/react';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
 import '../styles/globals.css';
 import MarkDown from 'markdown-to-jsx';
 

@@ -25,8 +25,7 @@ body {
 }
 
 .article-container {
-  flex: 1;
-  max-width: 800px;
+  max-width: min(100%, 800px);
   margin: 0 auto;
 }
 
